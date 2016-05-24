@@ -9,5 +9,7 @@
         </attr>
         <attr name="timeDelta" format="integer"/>
         <attr name="imgSrc" format="reference"/>
+        <attr name="borderWidth" format="integer"/>
+        <attr name="borderColor" format="color"/>
     </declare-styleable>
 </resources>

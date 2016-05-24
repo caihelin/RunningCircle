@@ -9,6 +9,8 @@ public class MainActivity extends AppCompatActivity {
     private RunningCircle runningCircle;
     private boolean imgSrcIsChanged = false;
     private boolean directionIsChanged = false;
+    private boolean hasBorder = false;
+    private boolean borderColorIsChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 runningCircle.start();
+
+            }
+        });
+
+        findViewById(R.id.btnBorderColor).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!borderColorIsChanged) {
+                    runningCircle.setBorderColor(R.color.colorPrimaryDark);
+                    borderColorIsChanged=true;
+                }else{
+                    runningCircle.setBorderColor(R.color.colorAccent);
+                    borderColorIsChanged=false;
+                }
+
+            }
+        });
+
+        findViewById(R.id.btnBorderWidth).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!hasBorder) {
+                    runningCircle.setBorderWidth(20);
+                    hasBorder=true;
+                }else{
+                    runningCircle.setBorderWidth(0);
+                    hasBorder=false;
+                }
+
 
             }
         });
