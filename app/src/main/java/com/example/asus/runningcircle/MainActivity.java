@@ -2,6 +2,7 @@ package com.example.asus.runningcircle;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -46,13 +47,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!hasBorder) {
                     runningCircle.setBorderWidth(20);
+                    boolean borderVisible = runningCircle.getBorderVisible();
+                    Log.d("kklog", String.valueOf(borderVisible));
+                    Toast.makeText(MainActivity.this, "borderVisible"+borderVisible, Toast.LENGTH_SHORT).show();
                     hasBorder=true;
                 }else{
                     runningCircle.setBorderWidth(0);
+                    boolean borderVisible = runningCircle.getBorderVisible();
+                    Log.d("kklog", String.valueOf(borderVisible));
+                    Toast.makeText(MainActivity.this, "borderVisible"+borderVisible, Toast.LENGTH_SHORT).show();
                     hasBorder=false;
                 }
-
-
             }
         });
 

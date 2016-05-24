@@ -252,6 +252,8 @@ public class RunningCircle extends View {
         this.borderWidth = borderWidth;
         if (this.borderWidth > 0) {
             hasBorder = true;
+        }else{
+            hasBorder=false;
         }
         invalidate();
     }
