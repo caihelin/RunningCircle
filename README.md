@@ -20,8 +20,10 @@
         android:layout_height="180dp"
         android:layout_marginLeft="60dp"
         run:direction="CW"
+        run:imgSrc="@drawable/jay_jay"
         run:timeDelta="800"
-        run:imgSrc="@drawable/jay_jay"/>
+        run:borderWidth="20"
+        run:borderColor="@color/colorAccent"/>
         
 其中 run 是自己引进的命名空间：xmlns:run="http://schemas.android.com/apk/res-auto"
 
@@ -33,6 +35,10 @@
          
          run:imgSrc="@drawable/jay_jay"  //设置转动的图片资源
          
+         run:borderWidth="20"     //设置图片边框的宽度
+        
+         run:borderColor="@color/colorAccent"  //设置边框颜色
+         
   PS：关于上面的必要的解释：
        
        关于 timeDelta ：我是用的Thread.sleep(timeDelta)来控制的时间变化，可能会有不妥（毕竟新手，还望指出）,所以在时
@@ -42,6 +48,11 @@
                         图片资源，当然，你可以在以后通过代码 runningCircle.setImgSrc(int) 来切换新的图片，该图片可以是
                         从网上加载的新的应该显示在这儿的图片。
                         并且该控件支持将你传入的图片 `自动缩放` 为该控件大小，以保证图片的 `最大化显示加载` ！
+                        
+       关于 borderWidth: 你可以用该属性来设置图片边框的宽度，当你传入大于0的值时会显示对应宽度的边框，当你传入0或
+                         者比0更小的值时，则设置边框为不显示
+       关于 borderColor: 你可以在borderWidth设置为大于0的前提下，通过该属性来设置边框的颜色，目前支持设置对应颜色的资源
+                         id,当你在设置了borderWidth为大于0后而未设置borderColor时，默认边框颜色为黑色(Color.BLACK)
         
         
 ### 好了，现在回到代码中：
@@ -68,7 +79,20 @@
 #### 我还想让该View在转动中切换图片资源：
       
          runningCircle.setImgSrc(R.drawable.jay_fantexi);
+         
+#### 我还想让该View在转动中选择设置边框的显示与否和边框宽度打大小：
+         
+         runningCircle.setBorderWidth(20);  
+         
+         PS：当传入的值为大于0的值时，表示显示边框，当传入小于等于0的值时表示隐藏边框，并且此时图片会去填充原先边框的部分
         
+#### 我还想让该View在转动中选择设置边框的颜色：
+          
+          runningCircle.setBorderColor(R.color.colorAccent);
+          
+          PS:注意传入的要是颜色的资源id哦
+        
+
 #### 你还想干什么？来来来，讲给我听啊，我不打你，我是爱你的！！
      
      
@@ -79,7 +103,7 @@
             public void onStart() {
                 Toast.makeText(MainActivity.this, "Start Running!", Toast.LENGTH_SHORT).show();
             }
-
+            
             @Override
             public void onStop() {
                 Toast.makeText(MainActivity.this, "Stop Running!", Toast.LENGTH_SHORT).show();
@@ -91,7 +115,7 @@
 
      
      
-![](https://github.com/youngkaaa/RunningCircle/raw/master/app/src/screens/demo.gif)  
+![](https://github.com/youngkaaa/RunningCircle/raw/master/app/src/screens/demo1.gif)  
 
       
          
