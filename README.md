@@ -97,6 +97,12 @@
           PS:注意传入的要是颜色的资源id哦
         
 
+#### 我还想让该View在转动中通过代码获得当前是否有Border存在 <br>
+         
+          runningCircle.getBorderVisible();  //返回值为布尔类型:true时表示存在Border，反之不存在Border
+          
+
+
 #### 你还想干什么？来来来，讲给我听啊，我不打你，我是爱你的！！<br>
      
      
