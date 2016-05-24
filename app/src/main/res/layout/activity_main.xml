@@ -12,7 +12,9 @@
         android:layout_marginLeft="60dp"
         run:direction="CW"
         run:imgSrc="@drawable/jay_jay"
-        run:timeDelta="800" />
+        run:timeDelta="800"
+        run:borderWidth="20"
+        run:borderColor="@color/colorAccent"/>
 
 
     <Button

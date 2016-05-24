@@ -255,4 +255,8 @@ public class RunningCircle extends View {
         }
         invalidate();
     }
+
+    public boolean getBorderVisible(){
+        return hasBorder;
+    }
 }
